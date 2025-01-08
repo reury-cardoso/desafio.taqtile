@@ -1,4 +1,4 @@
-<h1 align="center">TechFlow - TaqTile</h1>
+<h1 align="center">TechFlow - Instaq</h1>
 
 <p align="center">
   <img alt="projeto" src=".github/cover.png" width="100%">
@@ -6,7 +6,7 @@
 
 ## 🌐 Project's Description
 
-Project developed during onboarding, focused on solving the challenges of the Taqtile Institute. _(Possible Changes in the Future)_
+Project developed during onboarding, focused on solving the challenges of Instaq. _(Possible Changes in the Future)_
 
 ## 🛠️ Environment and tools
 
