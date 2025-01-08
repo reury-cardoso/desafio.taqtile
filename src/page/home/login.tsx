@@ -5,11 +5,11 @@ export function Login() {
     <div>
       <h1 className="welcome-heading">Bem-vindo(a) à Taqtile!</h1>
       <form className='form-login' action=''>
-        <label htmlFor='inputEmail'>E-mail</label>
-        <input id='inputEmail' type='email' />
+        <label htmlFor='input-email'>E-mail</label>
+        <input id='input-email' type='email' required/>
 
-        <label htmlFor='inputPassword'>Senha</label>
-        <input id='inputPassword' type='password' />
+        <label htmlFor='input-password'>Senha</label>
+        <input id='input-password' type='password' required/>
 
         <button type='submit'>Entrar</button>
       </form>
