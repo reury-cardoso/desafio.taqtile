@@ -11,7 +11,7 @@ export function Login() {
         <label htmlFor='input-password'>Senha</label>
         <input id='input-password' type='password' required/>
 
-        <button type='submit'>Entrar</button>
+        <button className='form-login-button' type='submit'>Entrar</button>
       </form>
     </div>
   );
