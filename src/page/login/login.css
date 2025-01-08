@@ -15,8 +15,7 @@
   flex-direction: column;
 }
 
-#input-email,
-#input-password {
+.inputs-form-login {
   height: 50px;
   margin: 12px 0 35px 0;
   padding: 0 20px;
