@@ -2,6 +2,7 @@
   --primary-color: #6d4ff2;
   --secondary-color: #d1d1d1;
   --hover-color: #5c3dcf;
+  --success-color: #4caf50;
   --error-color: #d32f2f;
 }
 
@@ -63,6 +64,14 @@
 
 .error {
   color: var(--error-color);
+  font-size: 0.875em;
+  margin-top: 4px;
+  padding-left: 4px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.success {
+  color: var(--success-color);
   font-size: 0.875em;
   margin-top: 4px;
   padding-left: 4px;
