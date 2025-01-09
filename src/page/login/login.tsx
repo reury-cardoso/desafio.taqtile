@@ -1,6 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema } from '../../schemas/validation-login-schema';
+import { useMutation } from '@apollo/client';
+import { LOGIN_MUTATION } from '../../graphql/mutations';
+
+import loadingCircles from '../../assets/bouncing-circles.svg';
 import './login.css';
 
 type LoginFormData = {
@@ -9,6 +13,8 @@ type LoginFormData = {
 };
 
 export function Login() {
+  const [login, { loading, error: authError, data: authData }] = useMutation(LOGIN_MUTATION);
+
   const {
     register,
     handleSubmit,
@@ -16,7 +22,17 @@ export function Login() {
   } = useForm<LoginFormData>({ resolver: zodResolver(loginSchema) });
 
   const onSubmitLogin = async (data: LoginFormData) => {
-    console.log(data);
+    try {
+      const response = await login({
+        variables: {
+          data,
+        },
+      });
+      const token = response.data.login.token;
+      localStorage.setItem('token', token);
+    } catch (error) {
+      console.log('Error on login:', authData);
+    }
   };
 
   return (
@@ -35,9 +51,10 @@ export function Login() {
           {errors.password && <p className='error'>{errors.password.message}</p>}
         </div>
 
-        <button className='form-login-button' type='submit'>
-          Entrar
+        <button className='form-login-button' type='submit' disabled={loading}>
+          {loading ? <img src={loadingCircles} alt='Loading...' /> : 'Entrar'}
         </button>
+        {authError && <p className='error'>{authError.message}</p>}
       </form>
     </div>
   );
