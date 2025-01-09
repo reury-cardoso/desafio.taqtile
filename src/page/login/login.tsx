@@ -13,7 +13,14 @@ type LoginFormData = {
 };
 
 export function Login() {
-  const [login, { loading, error, data }] = useMutation(LOGIN_MUTATION);
+  const [login, { loading, error, data }] = useMutation(LOGIN_MUTATION, {
+    onCompleted: (data) => {
+      localStorage.setItem('token', data.login.token);
+    },
+    onError: (error) => {
+      console.error(error);
+    },
+  });
 
   const {
     register,
@@ -22,17 +29,11 @@ export function Login() {
   } = useForm<LoginFormData>({ resolver: zodResolver(loginSchema) });
 
   const onSubmitLogin = async (formData: LoginFormData) => {
-    try {
-      const response = await login({
-        variables: {
-          data: formData,
-        },
-      });
-      const token = response.data.login.token;
-      localStorage.setItem('token', token);
-    } catch (err) {
-      console.error(err);
-    }
+    await login({
+      variables: {
+        data: formData,
+      },
+    });
   };
 
   return (
