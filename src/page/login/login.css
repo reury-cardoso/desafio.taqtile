@@ -2,6 +2,7 @@
   --primary-color: #6d4ff2;
   --secondary-color: #d1d1d1;
   --hover-color: #5c3dcf;
+  --error-color: #d32f2f;
 }
 
 .welcome-heading {
@@ -52,5 +53,24 @@
 
   &:hover {
     background-color: var(--hover-color);
+  }
+}
+
+.error {
+  color: var(--error-color);
+  font-size: 0.875em;
+  margin-top: 4px;
+  padding-left: 4px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
