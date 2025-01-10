@@ -70,14 +70,6 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
-.success {
-  color: var(--success-color);
-  font-size: 0.875em;
-  margin-top: 4px;
-  padding-left: 4px;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -15,7 +15,7 @@ type LoginFormData = {
 
 export function PageLogin() {
   const navigate = useNavigate();
-  const [login, { loading, error, data }] = useMutation(LOGIN_MUTATION, {
+  const [login, { loading, error }] = useMutation(LOGIN_MUTATION, {
     onCompleted: (data) => {
       localStorage.setItem('token', data.login.token);
       navigate('/users');
@@ -59,7 +59,6 @@ export function PageLogin() {
           {loading ? <img src={loadingCircles} alt='Loading...' /> : 'Entrar'}
         </button>
         {error && <p className='error'>{error.message}</p>}
-        {data && <p className='success'>Login efetuado com sucesso!</p>}
       </form>
     </div>
   );
