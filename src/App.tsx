@@ -1,11 +1,11 @@
 import { ApolloProvider } from '@apollo/client';
 import { client } from './apollo/client';
-import { Login } from './page/login/login';
+import { Router } from './router';
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Login />
+      <Router />
     </ApolloProvider>
   );
 }
