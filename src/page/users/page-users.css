@@ -1,7 +1,9 @@
 .loading-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 50px;
+  height: 96vh;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 50px;
+  }
 }
