@@ -13,7 +13,11 @@ export function PageUsers() {
     error: null,
   };
 
-  if (loading) return <img src={loadingRing} alt="Loading"  className='loading-ring'/>;
+  if (loading) return (
+    <div className="loading-ring">
+      <img src={loadingRing} alt="Loading" />
+    </div>
+  );
   if (error) return <p>Error </p>;
 
   return (
