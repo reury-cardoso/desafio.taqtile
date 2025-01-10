@@ -45,7 +45,7 @@ export function PageLogin() {
       <form className='form-login' onSubmit={handleSubmit(onSubmitLogin)}>
         <div className='form-group'>
           <label htmlFor='input-email'>E-mail</label>
-          <input className='form-login-inputs' id='input-email' type='text' {...register('email')} />
+          <input className='form-login-inputs' id='input-email' type='email' {...register('email')} />
           {formErrors.email && <p className='error'>{formErrors.email.message}</p>}
         </div>
 
