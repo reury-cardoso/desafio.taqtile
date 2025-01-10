@@ -3,19 +3,22 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema } from '../../schemas/validation-login-schema';
 import { useMutation } from '@apollo/client';
 import { LOGIN_MUTATION } from '../../graphql/mutations';
+import { useNavigate } from 'react-router-dom';
 
 import loadingCircles from '../../assets/bouncing-circles.svg';
-import './login.css';
+import './page-login.css';
 
 type LoginFormData = {
   email: string;
   password: string;
 };
 
-export function Login() {
+export function PageLogin() {
+  const navigate = useNavigate();
   const [login, { loading, error, data }] = useMutation(LOGIN_MUTATION, {
     onCompleted: (data) => {
       localStorage.setItem('token', data.login.token);
+      navigate('/users');
     },
     onError: (error) => {
       console.error(error);
