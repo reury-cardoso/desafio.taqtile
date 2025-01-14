@@ -1,0 +1,37 @@
+.user-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 0;
+  border-bottom: 1px solid #D8D8D8;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.user-card-div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.user-card-avatar {
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user-card-info {
+  .user-card-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+}
+
+.user-card-role {
+  padding: 4px 8px;
+  border-radius: 14px;
+  background: #702dff;
+  color: #fff;
+  font-weight: 500;
+}
