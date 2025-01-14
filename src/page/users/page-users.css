@@ -79,6 +79,10 @@
   background-color: #e0e0e0;
 }
 
+.break {
+  cursor: pointer;
+}
+
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;
