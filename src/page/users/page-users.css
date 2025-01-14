@@ -7,3 +7,79 @@
     width: 50px;
   }
 }
+
+.error-message {
+  height: 96vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff0000;
+}
+
+.users-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 20px 0 10px 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0.4rem 0;
+  gap: 0.3rem;
+}
+
+.page-item {
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.page-item:hover .page-link {
+  background-color: #e0e0e0;
+}
+
+.page-item.active .page-link {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.previous,
+.next {
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #4f46e5;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.previous:hover,
+.next:hover {
+  background-color: #e0e0e0;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
