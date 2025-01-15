@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_USERS_QUERY } from '../../graphql/queries';
-import { QueryVariables, UsersData } from '../../@types/get-users-query';
+import { GetUsersQueryVariables , UsersData } from '../../@types/get-users-query';
 
 import { UserCard } from '../../components/user-card/user-card';
 import loadingRing from '../../assets/ring-resize.svg';
@@ -14,7 +14,7 @@ export function PageUsers() {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 6;
 
-  const { loading, error, data, refetch } = useQuery<{users: UsersData}, {data: QueryVariables}>(GET_USERS_QUERY, {
+  const { loading, error, data, refetch } = useQuery<{users: UsersData}, {data: GetUsersQueryVariables }>(GET_USERS_QUERY, {
     variables: {
       data: {
         offset: currentPage * itemsPerPage,
