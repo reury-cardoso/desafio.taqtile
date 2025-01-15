@@ -15,16 +15,12 @@ export type PageInfo = {
 };
 
 export type UsersData = {
-  users: {
-    nodes: User[];
-    count: number;
-    pageInfo: PageInfo;
-  };
+  nodes: User[];
+  count: number;
+  pageInfo: PageInfo;
 };
 
 export type QueryVariables = {
-  data: {
-    offset: number;
-    limit: number;
-  };
+  offset: number;
+  limit: number;
 };
