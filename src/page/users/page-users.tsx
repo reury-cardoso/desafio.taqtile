@@ -14,7 +14,7 @@ export function PageUsers() {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 6;
 
-  const { loading, error, data, refetch } = useQuery<UsersData, QueryVariables>(GET_USERS_QUERY, {
+  const { loading, error, data, refetch } = useQuery<{users: UsersData}, {data: QueryVariables}>(GET_USERS_QUERY, {
     variables: {
       data: {
         offset: currentPage * itemsPerPage,
