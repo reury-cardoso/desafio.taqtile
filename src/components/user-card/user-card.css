@@ -28,11 +28,9 @@
   text-overflow: ellipsis; 
 }
 
-.user-card-info {
-  .user-card-name {
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
+.user-card-name {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .user-card-role {
