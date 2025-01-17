@@ -1,12 +1,37 @@
+import { useLazyQuery } from '@apollo/client';
+import { GET_USER_QUERY } from '../../graphql/queries';
+
+import loadingCircles from '../../assets/bouncing-circles.svg';
 import './user-card.css';
+import { User } from '../../@types/get-users-query';
 
 interface UserCardProps {
+  userId: string;
   name: string;
   email: string;
-  role: string;
+  openModal: () => void;
+  setSelectedUser: (user: User) => void;
 }
 
-export function UserCard({ name, email, role }: UserCardProps) {
+export function UserCard({ userId, name, email, openModal, setSelectedUser }: UserCardProps) {
+  const [fetchUser, { loading }] = useLazyQuery(GET_USER_QUERY, {
+    onCompleted: (data) => {
+      setSelectedUser(data.user);
+      openModal();
+    },
+    onError: (error) => {
+      alert(`Erro ao buscar usuário: ${error.message}`);
+    },
+  });
+
+  const handleClick = () => {
+    fetchUser({
+      variables: {
+        userId,
+      },
+    });
+  };
+
   return (
     <div className='user-card'>
       <div className='user-card-div'>
@@ -16,7 +41,9 @@ export function UserCard({ name, email, role }: UserCardProps) {
           <p className='user-card-email'>{email}</p>
         </div>
       </div>
-      <span className='user-card-role'>{role}</span>
+      <button className='user-card-details' onClick={handleClick}>
+        {loading ? <img width={14} className='loading-circles' src={loadingCircles} alt='Carregando...' /> : 'Detalhes'}
+      </button>
     </div>
   );
 }
