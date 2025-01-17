@@ -3,7 +3,11 @@ import ReactPaginate from 'react-paginate';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_USERS_QUERY } from '../../graphql/queries';
+<<<<<<< HEAD
 import { GetUsersQueryVariables, User, UsersData } from '../../@types/get-users-query';
+=======
+import { GetUsersQueryVariables , UsersData } from '../../@types/get-users-query';
+>>>>>>> e7061758fdb235f49e5337a88f886eb27caaee32
 
 import { UserCard } from '../../components/user-card/user-card';
 import loadingRing from '../../assets/ring-resize.svg';
@@ -12,6 +16,7 @@ import { Modal } from '../../components/modal/modal';
 
 export function PageUsers() {
   const navigate = useNavigate();
+<<<<<<< HEAD
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
@@ -34,6 +39,25 @@ export function PageUsers() {
       },
     },
   );
+=======
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 6;
+
+  const { loading, error, data, refetch } = useQuery<{users: UsersData}, {data: GetUsersQueryVariables }>(GET_USERS_QUERY, {
+    variables: {
+      data: {
+        offset: currentPage * itemsPerPage,
+        limit: itemsPerPage,
+      },
+    },
+    onError: (error) => {
+      if (error.message === 'Operação não autenticada.') {
+        localStorage.removeItem('token');
+        navigate('/auth');
+      }
+    },
+  });
+>>>>>>> e7061758fdb235f49e5337a88f886eb27caaee32
 
   const handlePageClick = ({ selected }: { selected: number }) => {
     setCurrentPage(selected);
@@ -113,8 +137,11 @@ export function PageUsers() {
         disabledClassName='disabled'
         forcePage={currentPage}
       />
+<<<<<<< HEAD
 
       <Modal isOpen={isModalOpen} onClose={closeModal} user={selectedUser} />
+=======
+>>>>>>> e7061758fdb235f49e5337a88f886eb27caaee32
     </div>
   );
 }

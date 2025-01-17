@@ -21,12 +21,20 @@
   border-radius: 50%;
 }
 
+<<<<<<< HEAD
 .user-card-name,
 .user-card-email {
   width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+=======
+.user-card-name, .user-card-email {
+  width: 200px; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+>>>>>>> e7061758fdb235f49e5337a88f886eb27caaee32
 }
 
 .user-card-name {
@@ -34,13 +42,19 @@
   font-weight: 600;
 }
 
+<<<<<<< HEAD
 .user-card-details {
   padding: 4px 8px;
   border: 0;
+=======
+.user-card-role {
+  padding: 4px 8px;
+>>>>>>> e7061758fdb235f49e5337a88f886eb27caaee32
   border-radius: 14px;
   background: #702dff;
   color: #fff;
   font-weight: 500;
+<<<<<<< HEAD
   cursor: pointer;
   transition:
     background 0.3s,
@@ -50,4 +64,7 @@
     background: #5f24d1;
     transform: scale(1.05);
   }
+=======
+  text-transform: uppercase;
+>>>>>>> e7061758fdb235f49e5337a88f886eb27caaee32
 }

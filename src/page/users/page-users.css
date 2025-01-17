@@ -30,6 +30,7 @@
   font-weight: 700;
   margin: 20px 0 10px 0;
 }
+<<<<<<< HEAD
 .add-user-button {
   border: none;
   border-radius: 50%;
@@ -44,6 +45,8 @@
     background-color: #3f36c7;
   }
 }
+=======
+>>>>>>> e7061758fdb235f49e5337a88f886eb27caaee32
 
 .pagination {
   display: flex;

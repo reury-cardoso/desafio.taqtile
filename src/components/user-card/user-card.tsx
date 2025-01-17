@@ -41,9 +41,13 @@ export function UserCard({ userId, name, email, openModal, setSelectedUser }: Us
           <p className='user-card-email'>{email}</p>
         </div>
       </div>
+<<<<<<< HEAD
       <button className='user-card-details' onClick={handleClick}>
         {loading ? <img width={14} className='loading-circles' src={loadingCircles} alt='Carregando...' /> : 'Detalhes'}
       </button>
+=======
+      <span className='user-card-role'>{role}</span>
+>>>>>>> e7061758fdb235f49e5337a88f886eb27caaee32
     </div>
   );
 }
