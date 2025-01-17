@@ -26,12 +26,6 @@ export function PageUsers() {
           limit: itemsPerPage,
         },
       },
-      onError: (error) => {
-        if (error.message === 'Operação não autenticada.') {
-          localStorage.removeItem('token');
-          navigate('/auth');
-        }
-      },
     },
   );
 
