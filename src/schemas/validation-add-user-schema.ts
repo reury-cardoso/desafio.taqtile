@@ -22,7 +22,6 @@ const birthDateSchema = z
     (date) => {
       const parsedDate = new Date(date);
       const today = new Date();
-      // Comparando apenas as datas (sem tempo)
       today.setHours(0, 0, 0, 0);
       return parsedDate < today;
     },

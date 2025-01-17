@@ -28,7 +28,7 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-      "endOfLine": "auto"
+
     },
   },
 )

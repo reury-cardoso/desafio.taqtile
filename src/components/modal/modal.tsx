@@ -33,9 +33,7 @@ export function Modal({ isOpen, onClose, user }: UserModalProps) {
                 <strong>Data de Nascimento:</strong> {user.birthDate}
               </p>
               <p>
-                <strong>Função:</strong> {
-                  user.role === 'Admin' ? 'Administrador' : 'Usuário'
-                }
+                <strong>Função:</strong> {user.role === 'Admin' ? 'Administrador' : 'Usuário'}
               </p>
             </>
           )}

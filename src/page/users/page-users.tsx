@@ -85,7 +85,12 @@ export function PageUsers() {
 
       <ul className='users-list'>
         {nodes.map((user) => (
-          <UserCard key={user.id} userId={user.id} name={user.name} email={user.email} openModal={openModal}
+          <UserCard
+            key={user.id}
+            userId={user.id}
+            name={user.name}
+            email={user.email}
+            openModal={openModal}
             setSelectedUser={setSelectedUser}
           />
         ))}
