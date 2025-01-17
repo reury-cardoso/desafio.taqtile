@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_USERS_QUERY } from '../../graphql/queries';
-import { GetUsersQueryVariables , UsersData } from '../../@types/get-users-query';
+import { GetUsersQueryVariables, UsersData } from '../../@types/get-users-query';
 
 import { UserCard } from '../../components/user-card/user-card';
 import loadingRing from '../../assets/ring-resize.svg';
@@ -14,20 +14,23 @@ export function PageUsers() {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 6;
 
-  const { loading, error, data, refetch } = useQuery<{users: UsersData}, {data: GetUsersQueryVariables }>(GET_USERS_QUERY, {
-    variables: {
-      data: {
-        offset: currentPage * itemsPerPage,
-        limit: itemsPerPage,
+  const { loading, error, data, refetch } = useQuery<{ users: UsersData }, { data: GetUsersQueryVariables }>(
+    GET_USERS_QUERY,
+    {
+      variables: {
+        data: {
+          offset: currentPage * itemsPerPage,
+          limit: itemsPerPage,
+        },
+      },
+      onError: (error) => {
+        if (error.message === 'Operação não autenticada.') {
+          localStorage.removeItem('token');
+          navigate('/auth');
+        }
       },
     },
-    onError: (error) => {
-      if (error.message === 'Operação não autenticada.') {
-        localStorage.removeItem('token');
-        navigate('/auth');
-      }
-    },
-  });
+  );
 
   const handlePageClick = ({ selected }: { selected: number }) => {
     setCurrentPage(selected);
@@ -67,7 +70,12 @@ export function PageUsers() {
 
   return (
     <div className='users-page'>
-      <h1 className='users-heading'>Usuários</h1>
+      <div className='users-heading-container'>
+        <h1 className='heading-title'>Usuários</h1>
+        <button className='add-user-button' onClick={() => navigate('/users/add')}>
+          +
+        </button>
+      </div>
 
       <ul className='users-list'>
         {nodes.map((user) => (

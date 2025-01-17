@@ -19,3 +19,16 @@ export const GET_USERS_QUERY = gql`
     }
   }
 `;
+
+export const GET_USER_QUERY = gql`
+  query User($userId: ID) {
+    user(id: $userId) {
+      id
+      name
+      phone
+      birthDate
+      email
+      role
+    }
+  }
+`;
