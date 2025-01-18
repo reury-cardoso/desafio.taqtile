@@ -20,7 +20,7 @@ export type UsersData = {
   pageInfo: PageInfo;
 };
 
-export type GetUsersQueryVariables  = {
+export type GetUsersQueryVariables = {
   offset: number;
   limit: number;
 };
