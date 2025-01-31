@@ -19,10 +19,30 @@
   color: #ff0000;
 }
 
-.users-heading {
+.users-heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading-title {
   font-size: 1.8rem;
   font-weight: 700;
   margin: 20px 0 10px 0;
+}
+.add-user-button {
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #4f46e5; 
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #3f36c7;
+  }
 }
 
 .pagination {
